@@ -1,0 +1,7 @@
+export const LOAD_RECIPE_DETAIL = 'RecipeDetail/LOAD_RECIPE_DETAIL';
+export const LOAD_RECIPE_DETAIL_SUCCESS = 'RecipeDetail/LOAD_RECIPE_DETAIL_SUCCESS';
+export const LOAD_RECIPE_DETAIL_ERROR = 'RecipeDetail/LOAD_RECIPE_DETAIL_ERROR';
+
+export const DELETE_RECIPE = 'RecipeDetail/DELETE_RECIPE';
+export const DELETE_RECIPE_SUCCESS = 'RecipeDetail/DELETE_RECIPE_SUCCESS';
+export const DELETE_RECIPE_ERROR = 'RecipeDetail/DELETE_RECIPE_ERROR';

@@ -4,18 +4,10 @@ import './style.scss';
 
 const List = (props) => {
   const ComponentToRender = props.component;
-  let content = (<div></div>);
-
-  // If we have items, render them
-  if (props.items) {
-    content = props.items
-      .map((item, index) => (
-        <ComponentToRender key={index} item={item} />
-      ));
-  } else {
-    // Otherwise render a single component
-    content = (<ComponentToRender />);
-  }
+  const content = props.items
+    .map((item, index) => (
+      <ComponentToRender key={index} item={item} />
+    ));
 
   return (
     <div className="list-wrapper">
