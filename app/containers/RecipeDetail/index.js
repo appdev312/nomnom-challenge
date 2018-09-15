@@ -6,7 +6,7 @@ import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 
 import {
-  makeSelectRecipe,
+  makeSelectCurrentRecipe,
   makeSelectLoading,
   makeSelectError,
 } from './selectors';
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-  recipe: makeSelectRecipe(),
+  currentRecipe: makeSelectCurrentRecipe(),
   loading: makeSelectLoading(),
   error: makeSelectError()
 });
@@ -29,6 +29,7 @@ const mapStateToProps = createStructuredSelector({
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({ key: 'recipeDetail', reducer });
+
 const withSaga = injectSaga({ key: 'recipeDetail', saga });
 
 export default compose(withReducer, withSaga, withConnect)(RecipeDetail);

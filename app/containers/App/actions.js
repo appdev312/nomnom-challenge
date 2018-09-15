@@ -5,7 +5,7 @@ import {
 } from './constants';
 
 /**
- * Load the recipes, this action starts the request saga
+ * Load the list of recipes
  *
  * @return {object} An action object with a type of LOAD_RECIPE_LIST
  */
@@ -16,7 +16,7 @@ export function loadRecipeList() {
 }
 
 /**
- * Dispatched when the recipes are loaded by the request saga
+ * Dispatched when the list of recipes are loaded by the request saga
  *
  * @param  {array} recipeList The list of recipes
  *
@@ -30,7 +30,7 @@ export function recipeListLoaded(recipeList) {
 }
 
 /**
- * Dispatched when loading the recipes fails
+ * Dispatched when loading the list of recipes fails
  *
  * @param  {object} error The error
  *

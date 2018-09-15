@@ -5,12 +5,11 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import {
-  makeSelectList,
+  makeSelectRecipeList,
   makeSelectLoading,
   makeSelectError,
-} from './selectors';
-import { loadRecipeList } from './actions';
-import reducer from './reducer';
+} from '../App/selectors';
+import { loadRecipeList } from '../App/actions';
 import saga from './saga';
 import RecipeList from './RecipeList';
 
@@ -19,15 +18,14 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-  recipeList: makeSelectList(),
+  recipeList: makeSelectRecipeList(),
   loading: makeSelectLoading(),
   error: makeSelectError()
 });
 
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
-
-const withReducer = injectReducer({ key: 'recipeList', reducer });
 const withSaga = injectSaga({ key: 'recipeList', saga });
 
-export default compose(withReducer, withSaga, withConnect)(RecipeList);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
+export default compose(withSaga, withConnect)(RecipeList);
 export { mapDispatchToProps };

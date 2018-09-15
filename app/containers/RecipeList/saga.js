@@ -1,6 +1,7 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { LOAD_RECIPE_LIST } from './constants';
-import * as actions from './actions';
+import { call, put, takeLatest } from 'redux-saga/effects';
+
+import { LOAD_RECIPE_LIST } from '../App/constants';
+import { recipeListLoaded, recipeListError } from '../App/actions';
 
 import request from 'utils/request';
 
@@ -14,9 +15,9 @@ export function* loadRecipeList() {
       }
     );
 
-    yield put(actions.recipeListLoaded(res));
+    yield put(recipeListLoaded(res));
   } catch (err) {
-    yield put(actions.recipeListError(err));
+    yield put(recipeListError(err));
   }
 }
 

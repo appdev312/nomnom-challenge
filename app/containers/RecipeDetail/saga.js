@@ -1,9 +1,11 @@
 import { push } from 'react-router-redux';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { LOAD_RECIPE_DETAIL, DELETE_RECIPE } from './constants';
+import {
+  LOAD_RECIPE_DETAIL,
+  DELETE_RECIPE,
+} from './constants';
 import * as actions from './actions';
-
 import request from 'utils/request';
 
 export function* loadRecipeDetail(action) {

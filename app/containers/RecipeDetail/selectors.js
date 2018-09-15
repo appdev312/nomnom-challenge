@@ -2,9 +2,9 @@ import { createSelector } from 'reselect';
 
 const selectRecipeDetail = (state) => state.get('recipeDetail');
 
-const makeSelectRecipe = () => createSelector(
+const makeSelectCurrentRecipe = () => createSelector(
   selectRecipeDetail,
-  (recipeDetailState) => recipeDetailState.get('recipe')
+  (recipeDetailState) => recipeDetailState.get('currentRecipe')
 );
 
 const makeSelectLoading = () => createSelector(
@@ -18,7 +18,7 @@ const makeSelectError = () => createSelector(
 );
 
 export {
-  makeSelectRecipe,
+  makeSelectCurrentRecipe,
   makeSelectLoading,
   makeSelectError,
 };

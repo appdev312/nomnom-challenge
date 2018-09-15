@@ -3,7 +3,7 @@ import React from 'react';
 
 import List from '../../components/List';
 import LoadingIndicator from '../../components/LoadingIndicator';
-import NewRecipeForm from '../NewRecipeForm/Loadable';
+import RecipeForm from '../RecipeForm';
 import RecipeCard from '../../components/RecipeCard';
 
 import './style.scss';
@@ -21,18 +21,14 @@ export default class RecipeList extends React.PureComponent { // eslint-disable-
     return (
       <div className="container">
         { loading && <LoadingIndicator /> }
-        <NewRecipeForm />
+        <RecipeForm mode="new" />
         {
           recipeList &&
           <div className="recipe-list">
-            <div className="recipe-list__top">
-            </div>
-            <div className="recipe-list__content">
-              <List
-                items={recipeList}
-                component={RecipeCard}
-              />
-            </div>
+            <List
+              items={recipeList}
+              component={RecipeCard}
+            />
           </div>
         }
       </div>

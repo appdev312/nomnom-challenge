@@ -4,6 +4,7 @@ import {
   LOAD_RECIPE_DETAIL,
   LOAD_RECIPE_DETAIL_SUCCESS,
   LOAD_RECIPE_DETAIL_ERROR,
+
   DELETE_RECIPE,
   DELETE_RECIPE_SUCCESS,
   DELETE_RECIPE_ERROR,
@@ -13,7 +14,7 @@ import {
 const initialState = fromJS({
   loading: false,
   error: false,
-  recipe: null,
+  currentRecipe: false,
 });
 
 function recipeDetailReducer(state = initialState, action) {
@@ -22,15 +23,16 @@ function recipeDetailReducer(state = initialState, action) {
       return state
         .set('loading', true)
         .set('error', false)
-        .set('recipe', null);
+        .set('currentRecipe', false);
     case LOAD_RECIPE_DETAIL_SUCCESS:
       return state
-        .set('recipe', action.recipe)
+        .set('currentRecipe', action.recipe)
         .set('loading', false);
     case LOAD_RECIPE_DETAIL_ERROR:
       return state
         .set('error', action.error)
         .set('loading', false);
+
     case DELETE_RECIPE:
       return state
         .set('loading', true)

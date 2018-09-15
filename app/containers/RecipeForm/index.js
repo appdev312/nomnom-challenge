@@ -4,15 +4,15 @@ import { createStructuredSelector } from 'reselect';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+
 import {
-  makeSelectList,
   makeSelectLoading,
   makeSelectError,
 } from './selectors';
 import { saveRecipe } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-import NewRecipeForm from './NewRecipeForm';
+import RecipeForm from '../../components/RecipeForm';
 
 const mapDispatchToProps = (dispatch) => ({
   saveRecipe: (recipe) => dispatch(saveRecipe(recipe)),
@@ -25,8 +25,9 @@ const mapStateToProps = createStructuredSelector({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'newRecipe', reducer });
-const withSaga = injectSaga({ key: 'newRecipe', saga });
+const withReducer = injectReducer({ key: 'recipeForm', reducer });
 
-export default compose(withReducer, withSaga, withConnect)(NewRecipeForm);
+const withSaga = injectSaga({ key: 'recipeForm', saga });
+
+export default compose(withReducer, withSaga, withConnect)(RecipeForm);
 export { mapDispatchToProps };

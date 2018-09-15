@@ -1,3 +1,0 @@
-export const LOAD_RECIPE_LIST = 'RecipeList/LOAD_RECIPE_LIST';
-export const LOAD_RECIPE_LIST_SUCCESS = 'RecipeList/LOAD_RECIPE_LIST_SUCCESS';
-export const LOAD_RECIPE_LIST_ERROR = 'RecipeList/LOAD_RECIPE_LIST_ERROR';

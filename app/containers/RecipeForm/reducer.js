@@ -12,7 +12,7 @@ const initialState = fromJS({
   error: false,
 });
 
-function newRecipeReducer(state = initialState, action) {
+function recipeDetailReducer(state = initialState, action) {
   switch (action.type) {
     case SAVE_RECIPE:
       return state
@@ -30,4 +30,4 @@ function newRecipeReducer(state = initialState, action) {
   }
 }
 
-export default newRecipeReducer;
+export default recipeDetailReducer;
