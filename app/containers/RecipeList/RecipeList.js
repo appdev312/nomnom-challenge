@@ -15,7 +15,7 @@ export default class RecipeList extends React.PureComponent { // eslint-disable-
 
   render() {
     const {
-      loading, error, recipeList,
+      loading, recipeList,
     } = this.props;
 
     return (
@@ -38,10 +38,6 @@ export default class RecipeList extends React.PureComponent { // eslint-disable-
 
 RecipeList.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
   recipeList: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.bool,

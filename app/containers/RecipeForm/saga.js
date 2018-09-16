@@ -1,16 +1,14 @@
+import { push } from 'react-router-redux';
 import { call, put, takeLatest } from 'redux-saga/effects';
+import request from 'utils/request';
 
-import {
-  SAVE_RECIPE,
-} from './constants';
+import { SAVE_RECIPE } from './constants';
 import { saveRecipeSuccess, saveRecipeError } from './actions';
 import { loadRecipeList } from '../App/actions';
-import { loadRecipeDetail } from '../RecipeDetail/actions';
-import request from 'utils/request';
 
 export function* saveRecipe(action) {
   try {
-    const res = yield call(
+    yield call(
       request,
       '_store',
       {
@@ -21,16 +19,13 @@ export function* saveRecipe(action) {
         body: JSON.stringify(action.recipe),
       }
     );
-    yield put(saveRecipeSuccess());
-    
-    if (action.recipe.id) {
-      // edit form
-      yield put(loadRecipeDetail(action.recipe.id));
-    } else {
-      yield put(loadRecipeList());
-    }
+
+    yield [
+      put(saveRecipeSuccess()),
+      put(loadRecipeList()),
+      put(push('/')),
+    ];
   } catch (err) {
-    console.log(err);
     yield put(saveRecipeError());
   }
 }

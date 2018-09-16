@@ -40,7 +40,7 @@ export default class RecipeDetail extends React.PureComponent { // eslint-disabl
 
   render() {
     const {
-      loading, error, currentRecipe,
+      loading, currentRecipe,
     } = this.props;
 
     return (
@@ -48,16 +48,16 @@ export default class RecipeDetail extends React.PureComponent { // eslint-disabl
         { loading && <LoadingIndicator /> }
         {
           this.state.isEditing &&
-          <RecipeForm mode="edit" recipe={ currentRecipe } closeForm={ this.onEdit } />
+          <RecipeForm mode="edit" recipe={currentRecipe} closeForm={this.onEdit} />
         }
-        { 
+        {
           !this.state.isEditing &&
           <div className="recipe-detail">
-            { currentRecipe && <RecipeCard item={ currentRecipe } /> }
+            { currentRecipe && <RecipeCard item={currentRecipe} /> }
             <div className="actions">
-              <button className="button action-button" onClick={ this.onBack }>Back</button>
-              <button className="button action-button" onClick={ this.onEdit }>Edit</button>
-              <button className="button action-button" onClick={ this.onDelete }>Delete</button>
+              <button className="button action-button" onClick={this.onBack}>Back</button>
+              <button className="button action-button" onClick={this.onEdit}>Edit</button>
+              <button className="button action-button" onClick={this.onDelete}>Delete</button>
             </div>
           </div>
         }
@@ -68,14 +68,12 @@ export default class RecipeDetail extends React.PureComponent { // eslint-disabl
 
 RecipeDetail.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
   currentRecipe: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.bool,
   ]),
   loadRecipeDetail: PropTypes.func,
   deleteRecipe: PropTypes.func,
+  match: PropTypes.object,
+  history: PropTypes.object,
 };

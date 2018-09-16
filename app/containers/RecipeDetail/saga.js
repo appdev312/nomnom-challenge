@@ -1,12 +1,12 @@
 import { push } from 'react-router-redux';
 import { call, put, takeLatest } from 'redux-saga/effects';
+import request from 'utils/request';
 
 import {
   LOAD_RECIPE_DETAIL,
   DELETE_RECIPE,
 } from './constants';
 import * as actions from './actions';
-import request from 'utils/request';
 
 export function* loadRecipeDetail(action) {
   try {
@@ -36,7 +36,7 @@ export function* loadRecipeDetail(action) {
 
 export function* deleteRecipe(action) {
   try {
-    const res = yield call(
+    yield call(
       request,
       '_delete',
       {

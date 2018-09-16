@@ -4,11 +4,6 @@ const selectGlobal = (state) => state.get('global');
 
 const selectRoute = (state) => state.get('route');
 
-const makeSelectCurrentRecipe = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('currentRecipe')
-);
-
 const makeSelectLoading = () => createSelector(
   selectGlobal,
   (globalState) => globalState.get('loading')
@@ -31,7 +26,6 @@ const makeSelectLocation = () => createSelector(
 
 export {
   selectGlobal,
-  makeSelectCurrentRecipe,
   makeSelectLoading,
   makeSelectError,
   makeSelectRecipeList,

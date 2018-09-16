@@ -1,9 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import request from 'utils/request';
 
 import { LOAD_RECIPE_LIST } from '../App/constants';
 import { recipeListLoaded, recipeListError } from '../App/actions';
-
-import request from 'utils/request';
 
 export function* loadRecipeList() {
   try {

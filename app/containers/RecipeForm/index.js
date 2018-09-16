@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
@@ -29,5 +30,5 @@ const withReducer = injectReducer({ key: 'recipeForm', reducer });
 
 const withSaga = injectSaga({ key: 'recipeForm', saga });
 
-export default compose(withReducer, withSaga, withConnect)(RecipeForm);
+export default compose(withReducer, withSaga, withConnect, withRouter)(RecipeForm);
 export { mapDispatchToProps };
